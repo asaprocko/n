@@ -1,0 +1,1467 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    --navy: #101426;
+    --maroon: #702d45;
+    --maroon-light: #91445d;
+    --cream: #eee1da;
+
+    background: var(--navy);
+    color: var(--cream);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   CLEAN BACKGROUND
+========================================= */
+
+body::before,
+body::after {
+    display: none;
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+    position: fixed;
+    z-index: 9999;
+
+    left: 50%;
+    bottom: 28px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 5px;
+
+    padding: 8px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 60px;
+
+    background: rgba(13, 17, 35, 0.72);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: rgba(239, 220, 215, 0.48);
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    transition: 0.4s ease;
+}
+
+.nav-link:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+.nav-link.active {
+    color: white;
+
+    background: var(--maroon-light);
+
+    box-shadow:
+        0 5px 25px rgba(145, 68, 93, 0.45);
+}
+
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+p {
+    font-weight: 400;
+}
+
+p {
+    line-height: 1.8;
+}
+
+.eyebrow {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.5;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   01 — OPENING
+========================================= */
+
+.opening {
+    min-height: 110vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.opening-content {
+    width: min(900px, 90vw);
+
+    animation:
+        openingIn 1.4s ease forwards;
+}
+
+.opening h1 {
+    font-size: clamp(52px, 8vw, 110px);
+
+    line-height: 0.95;
+    letter-spacing: -4px;
+
+    text-shadow:
+        0 15px 60px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    margin-top: 38px;
+
+    font-size: 15px;
+
+    opacity: 0.55;
+}
+
+.birthday-small {
+    margin-top: 90px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    opacity: 0.45;
+}
+
+@keyframes openingIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   02 — CONVERSATIONS
+========================================= */
+
+.conversations {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        150px 8vw 80px;
+
+    overflow: hidden;
+}
+
+.conversation-heading {
+    position: relative;
+    z-index: 2;
+
+    width: min(650px, 90vw);
+
+    margin: 0 auto;
+}
+
+.conversation-heading h2 {
+    font-size:
+        clamp(55px, 8vw, 105px);
+
+    line-height: 0.9;
+
+    margin-bottom: 30px;
+}
+
+.conversation-heading > p:last-child {
+    width: 360px;
+    max-width: 90vw;
+
+    opacity: 0.55;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   CHAT SPACE
+========================================= */
+
+.conversation-space {
+    position: relative;
+
+    width: min(1100px, 92vw);
+
+    height: 760px;
+
+    margin: 80px auto 0;
+}
+
+
+/* =========================================
+   CHAT CARD
+========================================= */
+
+.chat-card {
+    position: absolute;
+
+    width: min(320px, 42vw);
+    max-width: 320px;
+
+    padding: 18px 23px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.5s ease,
+        background 0.5s ease;
+
+    z-index: 1;
+}
+
+.chat-card:hover {
+    z-index: 20;
+
+    background:
+        rgba(255, 255, 255, 0.09);
+
+    transform:
+        translateY(-7px)
+        rotate(0deg) !important;
+}
+
+.chat-card span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    opacity: 0.4;
+}
+
+.chat-card p {
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   LEFT / RIGHT
+========================================= */
+
+.chat-left {
+    left: 4%;
+}
+
+.chat-right {
+    right: 4%;
+
+    background:
+        rgba(112, 45, 69, 0.18);
+}
+
+
+/* =========================================
+   CHAT POSITIONS
+========================================= */
+
+.chat-1 {
+    top: 0;
+    transform: rotate(-4deg);
+}
+
+.chat-2 {
+    top: 145px;
+    transform: rotate(3deg);
+}
+
+.chat-3 {
+    top: 290px;
+    transform: rotate(4deg);
+}
+
+.chat-4 {
+    top: 435px;
+    transform: rotate(-4deg);
+}
+
+.chat-5 {
+    top: 580px;
+    transform: rotate(3deg);
+}
+
+.chat-6 {
+    top: 725px;
+    transform: rotate(-5deg);
+}
+
+
+/* =========================================
+   FINAL CONVERSATION
+========================================= */
+
+.conversation-final {
+    position: relative;
+
+    width: min(500px, 85vw);
+
+    margin: 20px auto 0;
+
+    text-align: center;
+}
+
+.conversation-final p {
+    font-size: 15px;
+
+    opacity: 0.45;
+}
+
+.conversation-final strong {
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   03 — BIRTHDAY
+========================================= */
+
+.birthday {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+
+    background: var(--navy);
+
+    isolation: isolate;
+
+    overflow: hidden;
+}
+
+.birthday-glow {
+    display: none;
+}
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   FOTO
+========================================= */
+
+.floating-photo {
+    position: absolute;
+
+    width: 125px;
+    height: 160px;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.32);
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    animation:
+        flowerFloat 6s ease-in-out infinite;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.4s ease;
+
+    will-change: transform;
+}
+
+.floating-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================
+   FOTO HOVER
+========================================= */
+
+.floating-photo:hover {
+    z-index: 100;
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.55);
+
+    animation-play-state: paused;
+
+    transform:
+        scale(1.08)
+        rotate(0deg) !important;
+}
+
+
+/* =========================================
+   FOTO ATAS
+========================================= */
+
+.photo-1 {
+    left: 3%;
+    top: 5%;
+    transform: rotate(-12deg);
+}
+
+.photo-2 {
+    left: 16%;
+    top: 2%;
+    transform: rotate(7deg);
+}
+
+.photo-3 {
+    left: 30%;
+    top: 5%;
+    transform: rotate(-5deg);
+}
+
+.photo-4 {
+    right: 30%;
+    top: 5%;
+    transform: rotate(6deg);
+}
+
+.photo-5 {
+    right: 16%;
+    top: 2%;
+    transform: rotate(-8deg);
+}
+
+.photo-6 {
+    right: 3%;
+    top: 5%;
+    transform: rotate(11deg);
+}
+
+
+/* =========================================
+   FOTO SAMPING
+========================================= */
+
+.photo-7 {
+    left: 3%;
+    top: 36%;
+    transform: rotate(8deg);
+}
+
+.photo-8 {
+    left: 15%;
+    top: 32%;
+    transform: rotate(-7deg);
+}
+
+.photo-9 {
+    right: 15%;
+    top: 32%;
+    transform: rotate(7deg);
+}
+
+.photo-10 {
+    right: 3%;
+    top: 36%;
+    transform: rotate(-10deg);
+}
+
+
+/* =========================================
+   FOTO BAWAH
+========================================= */
+
+.photo-11 {
+    left: 4%;
+    bottom: 4%;
+    transform: rotate(9deg);
+}
+
+.photo-12 {
+    left: 17%;
+    bottom: 1%;
+    transform: rotate(-6deg);
+}
+
+.photo-13 {
+    right: 17%;
+    bottom: 1%;
+    transform: rotate(6deg);
+}
+
+.photo-14 {
+    right: 4%;
+    bottom: 4%;
+    transform: rotate(-9deg);
+}
+
+
+/* =========================================
+   FOTO TENGAH
+========================================= */
+
+.photo-15 {
+    left: 50%;
+    top: 10%;
+
+    width: 105px;
+    height: 140px;
+
+    transform:
+        translateX(-50%)
+        rotate(3deg);
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   FLOATING ANIMATION
+========================================= */
+
+@keyframes flowerFloat {
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -8px;
+    }
+}
+
+
+/* =========================================
+   CENTER MESSAGE
+========================================= */
+
+.birthday-center {
+    position: absolute;
+
+    z-index: 50;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: min(390px, 32vw);
+
+    padding:
+        35px 25px;
+
+    text-align: center;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+
+    backdrop-filter: none;
+}
+
+
+/* =========================================
+   CENTER PROTECTION
+========================================= */
+
+.birthday-center::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    inset: -55px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(16, 20, 38, 0.98) 0%,
+            rgba(16, 20, 38, 0.92) 35%,
+            rgba(16, 20, 38, 0.65) 58%,
+            transparent 76%
+        );
+}
+
+
+/* =========================================
+   BIRTHDAY TYPOGRAPHY
+========================================= */
+
+.birthday-eyebrow {
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.45;
+
+    margin-bottom: 25px;
+}
+
+.birthday-center h2 {
+    font-size:
+        clamp(50px, 6vw, 85px);
+
+    line-height: 0.9;
+
+    letter-spacing: -3px;
+}
+
+.birthday-center h2 span {
+    color: #bd7088;
+}
+
+.birthday-line {
+    width: 45px;
+    height: 1px;
+
+    margin: 30px auto;
+
+    background:
+        rgba(238, 225, 218, 0.5);
+}
+
+.birthday-message {
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    opacity: 0.68;
+}
+
+.birthday-wish {
+    margin-top: 30px;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    opacity: 0.95;
+}
+
+
+/* =========================================
+   HINT
+========================================= */
+
+.gallery-hint {
+    position: absolute;
+
+    z-index: 80;
+
+    bottom: 55px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.3;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   04 — LITTLE THINGS
+========================================= */
+
+.little-things {
+    min-height: 130vh;
+
+    padding:
+        180px 8vw;
+}
+
+.little-heading {
+    margin-left: 10vw;
+}
+
+.little-heading h2 {
+    font-size:
+        clamp(55px, 8vw, 105px);
+
+    line-height: 0.9;
+}
+
+.little-list {
+    margin-top: 150px;
+    margin-left: 8vw;
+}
+
+.little-list p {
+    width: fit-content;
+
+    margin-bottom: 35px;
+
+    font-size:
+        clamp(25px, 4vw, 52px);
+
+    opacity: 0.7;
+
+    transition: 0.4s ease;
+}
+
+.little-list p:nth-child(2) {
+    margin-left: 12vw;
+}
+
+.little-list p:nth-child(3) {
+    margin-left: 4vw;
+}
+
+.little-list p:nth-child(4) {
+    margin-left: 17vw;
+}
+
+.little-list p:nth-child(5) {
+    margin-left: 8vw;
+}
+
+.little-list p:hover {
+    opacity: 1;
+
+    transform:
+        translateX(12px);
+}
+
+
+/* =========================================
+   05 — LETTER
+========================================= */
+
+.letter {
+    min-height: 130vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        200px 10vw;
+}
+
+.letter-content {
+    width:
+        min(750px, 90vw);
+
+    margin-left: 8vw;
+}
+
+.letter-content h2 {
+    font-size:
+        clamp(55px, 8vw, 105px);
+
+    line-height: 0.9;
+
+    margin-bottom: 100px;
+}
+
+.letter-text {
+    width:
+        min(520px, 90vw);
+
+    margin-left: auto;
+}
+
+.letter-text p {
+    margin-bottom: 38px;
+
+    font-size: 16px;
+
+    opacity: 0.68;
+}
+
+.letter-text .final-letter {
+    margin-top: 70px;
+
+    font-size: 22px;
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   06 — ENDING
+========================================= */
+
+.ending {
+    min-height: 110vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.ending-content {
+    width:
+        min(650px, 90vw);
+}
+
+.ending h2 {
+    font-size:
+        clamp(55px, 8vw, 105px);
+
+    line-height: 0.9;
+
+    margin-bottom: 60px;
+}
+
+.ending-content > p:not(.eyebrow) {
+    opacity: 0.55;
+
+    margin-bottom: 15px;
+}
+
+.ending-final {
+    margin-top: 80px;
+
+    font-style: italic;
+
+    opacity: 0.75 !important;
+}
+
+.heart {
+    display: block;
+
+    margin-top: 60px;
+
+    font-size: 28px;
+
+    color: #b5657d;
+
+    animation:
+        heartFloat 4s ease-in-out infinite;
+}
+
+@keyframes heartFloat {
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding:
+        50px 20px 120px;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.3;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    /* NAVIGATION */
+
+    .navbar {
+        bottom: 16px;
+
+        padding:
+            6px 7px;
+
+        gap: 2px;
+    }
+
+    .nav-link {
+        width: 31px;
+        height: 31px;
+
+        font-size: 8px;
+    }
+
+
+    /* OPENING */
+
+    .opening {
+        min-height: 100vh;
+
+        padding:
+            40px 7vw;
+    }
+
+    .opening h1 {
+        font-size:
+            clamp(42px, 12vw, 65px);
+
+        letter-spacing: -2px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+
+        margin-top: 30px;
+    }
+
+    .birthday-small {
+        margin-top: 60px;
+    }
+
+
+    /* =====================================
+       CONVERSATIONS MOBILE
+    ====================================== */
+
+    .conversations {
+        min-height: auto;
+
+        padding:
+            120px 7vw 100px;
+    }
+
+    .conversation-heading h2 {
+        font-size:
+            clamp(48px, 13vw, 70px);
+    }
+
+    .conversation-heading > p:last-child {
+        width: 100%;
+
+        font-size: 13px;
+    }
+
+    .conversation-space {
+        width: 100%;
+
+        height: 760px;
+
+        margin-top: 70px;
+    }
+
+    .chat-card {
+        width:
+            min(235px, 65vw);
+
+        padding:
+            14px 17px;
+    }
+
+    .chat-card p {
+        font-size: 13px;
+    }
+
+    .chat-left {
+        left: 0;
+    }
+
+    .chat-right {
+        right: 0;
+    }
+
+
+    /* CHAT POSITIONS */
+
+    .chat-1 {
+        top: 0;
+        transform: rotate(-4deg);
+    }
+
+    .chat-2 {
+        top: 145px;
+        transform: rotate(3deg);
+    }
+
+    .chat-3 {
+        top: 290px;
+        transform: rotate(4deg);
+    }
+
+    .chat-4 {
+        top: 435px;
+        transform: rotate(-4deg);
+    }
+
+    .chat-5 {
+        top: 580px;
+        transform: rotate(3deg);
+    }
+
+    .chat-6 {
+        top: 725px;
+        transform: rotate(-5deg);
+    }
+
+
+    /* FINAL CONVERSATION */
+
+    .conversation-final {
+        width: 85vw;
+
+        margin-top: 20px;
+    }
+
+    .conversation-final p {
+        font-size: 13px;
+    }
+
+    .conversation-final strong {
+        font-size: 19px;
+    }
+
+
+    /* =====================================
+       BIRTHDAY MOBILE
+    ====================================== */
+
+    .birthday {
+        height: 100svh;
+
+        min-height: 700px;
+
+        overflow: hidden;
+    }
+
+    .gallery {
+        overflow: hidden;
+    }
+
+    .birthday-center {
+        width: 58vw;
+
+        padding:
+            20px 8px;
+    }
+
+    .birthday-center::before {
+        inset: -45px;
+    }
+
+    .birthday-center h2 {
+        font-size:
+            clamp(38px, 12vw, 58px);
+
+        letter-spacing: -2px;
+    }
+
+    .birthday-message {
+        font-size: 11px;
+
+        line-height: 1.7;
+    }
+
+    .birthday-wish {
+        font-size: 14px;
+
+        margin-top: 20px;
+    }
+
+    .birthday-eyebrow {
+        font-size: 6px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* FOTO MOBILE */
+
+    .floating-photo {
+        width: 68px;
+        height: 91px;
+
+        border-radius: 3px;
+
+        box-shadow:
+            0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+
+    /* FOTO ATAS */
+
+    .photo-1 {
+        left: 1%;
+        top: 4%;
+        transform: rotate(-11deg);
+    }
+
+    .photo-2 {
+        left: 18%;
+        top: 2%;
+        transform: rotate(7deg);
+    }
+
+    .photo-3 {
+        left: 35%;
+        top: 4%;
+        transform: rotate(-5deg);
+    }
+
+    .photo-4 {
+        right: 18%;
+        top: 2%;
+        transform: rotate(6deg);
+    }
+
+    .photo-5 {
+        right: 1%;
+        top: 4%;
+        transform: rotate(-9deg);
+    }
+
+    .photo-6 {
+        display: none;
+    }
+
+
+    /* FOTO SAMPING */
+
+    .photo-7 {
+        left: 0;
+        top: 35%;
+        transform: rotate(8deg);
+    }
+
+    .photo-8 {
+        left: 13%;
+        top: 31%;
+        transform: rotate(-7deg);
+    }
+
+    .photo-9 {
+        right: 13%;
+        top: 31%;
+        transform: rotate(7deg);
+    }
+
+    .photo-10 {
+        right: 0;
+        top: 35%;
+        transform: rotate(-10deg);
+    }
+
+
+    /* FOTO BAWAH */
+
+    .photo-11 {
+        left: 1%;
+        bottom: 4%;
+        transform: rotate(9deg);
+    }
+
+    .photo-12 {
+        left: 18%;
+        bottom: 1%;
+        transform: rotate(-6deg);
+    }
+
+    .photo-13 {
+        right: 18%;
+        bottom: 1%;
+        transform: rotate(6deg);
+    }
+
+    .photo-14 {
+        right: 1%;
+        bottom: 4%;
+        transform: rotate(-9deg);
+    }
+
+
+    /* FOTO TENGAH */
+
+    .photo-15 {
+        width: 55px;
+        height: 73px;
+
+        top: 15%;
+
+        transform:
+            translateX(-50%)
+            rotate(3deg);
+    }
+
+
+    /* HINT */
+
+    .gallery-hint {
+        bottom: 65px;
+
+        font-size: 6px;
+    }
+
+
+    /* =====================================
+       LITTLE THINGS
+    ====================================== */
+
+    .little-things {
+        min-height: 120vh;
+
+        padding:
+            140px 7vw 220px;
+    }
+
+    .little-heading {
+        margin-left: 0;
+    }
+
+    .little-heading h2 {
+        font-size:
+            clamp(48px, 13vw, 70px);
+    }
+
+    .little-list {
+        margin:
+            90px 0 0;
+    }
+
+    .little-list p {
+        margin-left: 0 !important;
+
+        font-size:
+            clamp(25px, 8vw, 38px);
+
+        margin-bottom: 30px;
+    }
+
+
+    /* =====================================
+       LETTER
+    ====================================== */
+
+    .letter {
+        min-height: 120vh;
+
+        padding:
+            150px 7vw;
+    }
+
+    .letter-content {
+        margin-left: 0;
+    }
+
+    .letter-content h2 {
+        font-size:
+            clamp(48px, 13vw, 70px);
+
+        margin-bottom: 70px;
+    }
+
+    .letter-text {
+        width: 100%;
+    }
+
+    .letter-text p {
+        font-size: 14px;
+
+        margin-bottom: 30px;
+    }
+
+
+    /* =====================================
+       ENDING
+    ====================================== */
+
+    .ending {
+        min-height: 100vh;
+
+        padding:
+            100px 7vw;
+    }
+
+    .ending h2 {
+        font-size:
+            clamp(48px, 13vw, 70px);
+    }
+}
+
+
+/* =========================================
+   SMALL PHONE
+========================================= */
+
+@media (max-width: 390px) {
+
+    .floating-photo {
+        width: 60px;
+        height: 80px;
+    }
+
+    .birthday-center {
+        width: 67vw;
+
+        padding:
+            22px 10px;
+    }
+
+    .birthday-center h2 {
+        font-size: 38px;
+    }
+
+    .birthday-message {
+        font-size: 10px;
+    }
+
+    .birthday-wish {
+        font-size: 13px;
+    }
+
+    .photo-15 {
+        width: 50px;
+        height: 67px;
+    }
+}
